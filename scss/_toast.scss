@@ -1,0 +1,54 @@
+.toaster {  
+  display: flex;  
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  width: $width;
+  min-height: $min-height;
+  color: $color-default;
+  box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.15);
+
+  &--default {
+    background-color: $bg-color-default;
+  }
+
+  &--info {
+    background-color: $bg-color-info;
+  }
+
+  &--error {
+    background-color: $bg-color-error;
+  }
+
+  &--warning {
+    background-color: $bg-color-warning;
+  }
+
+  &--success {
+    background-color: $bg-color-success;
+  }
+
+  &__message {
+    color: inherit;    
+    margin-right: 8px;
+  }
+
+  &__button {
+    border: none;
+    outline: none;
+    background: none;
+    margin-left: auto;
+    height: 36px;
+    color: $button-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;    
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      background-color: lighten($bg-color-default, 10);
+    }
+  }
+}

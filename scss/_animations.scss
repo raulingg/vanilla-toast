@@ -1,0 +1,125 @@
+@mixin transform {
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes InRight {
+	from {
+    transform: translate3d(110%, 0, 0);
+    visibility: visible;
+  }
+  to {
+      @include transform;
+  }
+}
+
+@keyframes InLeft {
+	from {
+    transform: translate3d(-110%, 0, 0);
+    visibility: visible;
+  }
+  to {
+      @include transform;
+  }
+}
+
+@keyframes InDown {
+  from {
+    transform: translate3d(0, -110%, 0);
+    visibility: visible;
+  }
+  to {
+      @include transform;
+  }
+}
+
+@keyframes InUp {
+	from {
+    transform: translate3d(0, 110%, 0);
+    visibility: visible;
+  }
+  to {
+    @include transform;
+  }
+}
+
+@keyframes OutRight {
+  from {
+    @include transform;
+  }
+  to {
+    visibility: hidden;
+    transform: translate3d(110%, 0, 0);
+  }
+}
+
+@keyframes OutLeft {
+  from {
+    @include transform;
+  }
+  to {
+    visibility: hidden;
+    transform: translate3d(-110%, 0, 0);
+  }
+}
+
+@keyframes OutDown {
+  from {
+    @include transform;
+  }
+  to {
+    visibility: hidden;
+    transform: translate3d(0, 500px, 0);
+  }
+}
+
+@keyframes OutUp {
+  from {
+    @include transform;
+  }
+  to {
+    visibility: hidden;
+    transform: translate3d(0, -500px, 0);
+  }
+}
+
+.slide-enter {
+  animation-duration: $animation-duration-enter;
+  animation-fill-mode: forwards;
+
+  &--top-left, &--bottom-left {
+    animation-name: InLeft;
+  }
+
+  &--top-right, &--bottom-right {
+    animation-name: InRight;
+  }
+
+  &--top-center {
+    animation-name: InDown;
+  }
+
+  &--bottom-center {
+    animation-name: InUp;
+  }
+}
+
+.slide-exit {
+  animation-duration: $animation-duration-exit;
+  animation-fill-mode: forwards;
+
+  &--top-left, &--bottom-left {
+    animation-name: OutLeft;
+  }
+
+  &--top-right, &--bottom-right {
+    animation-name: OutRight;
+  }
+
+  &--top-center {
+    animation-name: OutUp;
+  }
+
+  &--bottom-center {
+    animation-name: OutDown;
+  }
+}
