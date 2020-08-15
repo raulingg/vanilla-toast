@@ -64,6 +64,9 @@ const builder = () => {
     messageEl.append(messageText);
     messageEl.className = "toaster__message";
     toasterEl.appendChild(messageEl);
+    toasterEl.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
 
     if (!opts.hideDismissButton)
       appendDismissButton(toasterEl, opts.dismissText);
