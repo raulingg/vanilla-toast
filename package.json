@@ -1,7 +1,7 @@
 {
   "name": "@raulingg/vanilla-toast",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A stacking toast with just vanilla Javascript.",
   "repository": {
     "type": "git",
@@ -9,7 +9,9 @@
   },
   "author": "Raul Quispe <relaxedchild@gmail.com> (raulingg)",
   "homepage": "https://github.com/raulingg/vanilla-toast#readme",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "toast",
     "notification",
