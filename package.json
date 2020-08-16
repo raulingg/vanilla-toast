@@ -9,9 +9,6 @@
   },
   "author": "Raul Quispe <relaxedchild@gmail.com> (raulingg)",
   "homepage": "https://github.com/raulingg/vanilla-toast#readme",
-  "files": [
-    "dist"
-  ],
   "keywords": [
     "toast",
     "notification",
@@ -31,7 +28,9 @@
     "build:main": "parcel build ./src/index.js --target main --no-cache --no-source-maps",
     "build:module": "parcel build ./src/index.js --target module --no-cache --no-source-maps",
     "build:css": "parcel build ./src/sass/main.scss --target css",
-    "build": "yarn build:main && yarn build:module && yarn build:css"
+    "build": "yarn build:main && yarn build:module && yarn build:css",
+    "predist": "rm -rf ./dist && yarn build && cp README.md package.json LICENSE ./dist",
+    "dist": "npm publish dist"
   },
   "devDependencies": {
     "@babel/core": "7.11.1",
