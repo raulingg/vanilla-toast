@@ -1,7 +1,7 @@
 {
   "name": "@raulingg/vanilla-toast",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A stacking toast with just vanilla Javascript.",
   "repository": {
     "type": "git",
