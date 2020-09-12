@@ -15,8 +15,7 @@
     "alert",
     "toaster javascript"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.esm.js",
+  "module": "./dist/index.js",
   "targets": {
     "css": {
       "distDir": "./dist/main.css",
@@ -25,7 +24,6 @@
   },
   "scripts": {
     "start": "parcel serve index.html --open",
-    "build:main": "parcel build ./src/index.js --target main --no-cache --no-source-maps",
     "build:module": "parcel build ./src/index.js --target module --no-cache --no-source-maps",
     "build:css": "parcel build ./src/sass/main.scss --target css",
     "build": "yarn build:main && yarn build:module && yarn build:css",
