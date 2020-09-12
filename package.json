@@ -26,7 +26,7 @@
     "start": "parcel serve index.html --open",
     "build:module": "parcel build ./src/index.js --target module --no-cache --no-source-maps",
     "build:css": "parcel build ./src/sass/main.scss --target css",
-    "build": "yarn build:main && yarn build:module && yarn build:css",
+    "build": "yarn build:module && yarn build:css",
     "predist": "rm -rf ./dist && yarn build && cp README.md package.json LICENSE ./dist",
     "dist": "npm publish dist"
   },
@@ -36,6 +36,7 @@
     "sass": "^1.26.10"
   },
   "publishConfig": {
+    "registry": "https://registry.npmjs.org",
     "access": "public"
   }
 }
