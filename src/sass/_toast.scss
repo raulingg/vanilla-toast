@@ -1,54 +1,69 @@
-.toaster {  
-  display: flex;  
+
+@mixin background-color ($color) {
+  background-color: $color;
+  & button {
+    background-color: scale-color($color, $lightness: -10%);
+
+    &:hover, &:active {
+      background-color: scale-color($color, $lightness: -20%);
+    }
+
+    &:focus {
+      outline-style: solid;
+      outline-color: transparent;
+      box-shadow: 0 0 0 3px scale-color($color, $lightness: -40%);
+    }
+  }
+}
+
+.toaster {
+  box-sizing: border-box;
+  display: flex;
   align-items: center;
   padding-left: 16px;
-  padding-right: 8px;
-  padding-top: 6px;
-  padding-bottom: 6px;
   width: $width;
   min-height: $min-height;
+  height: 4rem;
   color: $color-default;
-  box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.15);
-
-  &--default {
-    background-color: $bg-color-default;
-  }
-
-  &--info {
-    background-color: $bg-color-info;
-  }
-
-  &--error {
-    background-color: $bg-color-error;
-  }
-
-  &--warning {
-    background-color: $bg-color-warning;
-  }
-
-  &--success {
-    background-color: $bg-color-success;
-  }
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 
   &__message {
-    color: inherit;    
+    color: inherit;
     margin-right: 8px;
   }
 
-  &__button {
+  & button {
     border: none;
+    // border-left: 0.1px solid $color-default;
     outline: none;
-    background: none;
     margin-left: auto;
-    height: 36px;
-    color: $button-color;
+    color: $color-default;
     text-transform: uppercase;
     font-weight: bold;
-    cursor: pointer;    
-    transition: all .3s ease-in-out;
+    cursor: pointer;
+    min-height: $min-height;
+    height: 4rem;
+    min-width: 3rem;
+    transition: all 0.3s ease-in-out;
+  }
 
-    &:hover {
-      background-color: lighten($bg-color-default, 10);
-    }
+  &--default {
+    @include background-color($bg-color-default);
+  }
+
+  &--info {
+    @include background-color($bg-color-info);
+  }
+  
+  &--error {
+    @include background-color($bg-color-error);
+  }
+  
+  &--warning {
+    @include background-color($bg-color-warning);
+  }
+  
+  &--success {
+    @include background-color($bg-color-success);
   }
 }
