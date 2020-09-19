@@ -15,24 +15,20 @@
     "alert",
     "toaster javascript"
   ],
-  "module": "./dist/index.js",
-  "targets": {
-    "css": {
-      "distDir": "./dist/main.css",
-      "sourceMap": false
-    }
-  },
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "scripts": {
-    "start": "parcel serve index.html --open",
-    "build:module": "parcel build ./src/index.js --target module --no-cache --no-source-maps",
-    "build:css": "parcel build ./src/sass/main.scss --target css",
-    "build": "yarn build:module && yarn build:css",
-    "predist": "rm -rf ./dist && yarn build && cp README.md package.json LICENSE ./dist",
-    "dist": "npm publish dist"
+    "dev": "rollup -c ./rollup.config.dev.js -w",
+    "build": "rollup -c ./rollup.config.js"
   },
   "devDependencies": {
     "@babel/core": "7.11.1",
-    "parcel": "^2.0.0-beta.1",
+    "rollup": "^2.27.1",
+    "rollup-plugin-cleaner": "^1.0.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-scss": "^2.6.0",
+    "rollup-plugin-serve": "^1.0.4",
+    "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.26.10"
   },
   "publishConfig": {
